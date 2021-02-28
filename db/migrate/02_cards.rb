@@ -1,4 +1,4 @@
-class Cards < ActiveRecord::Migration
+class Cards < ActiveRecord::Migration[4.2]
     def change
         create_table :cards do |t|
             t.string :rarity
