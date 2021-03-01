@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
+    set :session_secret, "password_security"
   end
 
   get "/" do
@@ -26,9 +27,9 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  get '/account' do
+  get '/profile' do
     @user = User.find(session[:user_id])
-    erb :account
+    erb :profile
   end
 
 
@@ -40,7 +41,7 @@ class ApplicationController < Sinatra::Base
 		user = User.find_by(:username => params[:username])
 		if user && user.authenticate(params[:password])
 			session[:user_id] = user.id
-			redirect "/account"
+			redirect "/profile"
 		else
 			redirect "/failure"
 		end
