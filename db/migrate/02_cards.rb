@@ -2,7 +2,7 @@ class Cards < ActiveRecord::Migration[4.2]
     def change
         create_table :cards do |t|
             t.string :rarity
-            t.string :type
+            t.string :group
             t.integer :value
             t.string :name
             t.string :text
