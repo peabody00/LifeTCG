@@ -1,16 +1,18 @@
+<h2>All User Posts</h2>
 <ul>
 <% @post.each do |post| %>
   <li>
     <a href="/post/post/<%= post.id %>"><%= post.text %></a>
     <p style="font-size:10px">
-    Author: <%= post.author %>
+    Author: 
     </br>Posted <%= post.created_at %>
     </br>Updated <%= post.updated_at %></p>
   </li>
 <% end %>
 </ul>
 
-<a href="/post/new">New Post</a>
+<a href="/post/post/new">New Post</a>
+</br><a href="/users/profile">Back to Profile</a>
 
 <!-- <div class="wrap"> 
 <div>

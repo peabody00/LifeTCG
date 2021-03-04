@@ -1,14 +1,13 @@
-<form action="/post/post" method="post">
-  <ul>
-    <li>
-      <label for="title">Author</label>
-      <input id="title" type="text" name="author" />
-    </li>
-    <li>
+<h3><%= current_user.username %> New Post</h3>
+
+<!-- <form action="/post/post/new" method="post">
       <label for="content">Content</label>
       <textarea id="content" type="text" name="text">
       </textarea>
-    </li>
-  </ul>
   <input type="submit" />
+</form> -->
+
+<form action="/post/post" method="POST">
+  <p>Post: <input type="text" id="content" name="text"></p>
+  <input class="btn btn-primary" type="submit" value="submit">
 </form>
