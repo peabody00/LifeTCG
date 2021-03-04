@@ -1,0 +1,32 @@
+<ul>
+<% @post.each do |post| %>
+  <li>
+    <a href="/post/<%= post.id %>">
+      <%= post.text %> 
+    </a>
+  </li>
+<% end %>
+</ul>
+
+<a href="/post/new">New Post</a>
+
+<!-- <div class="wrap"> 
+<div>
+  <h2 class="title"> Filters </h2>
+  
+  <div class="byUser">
+    <span class="title">All post by User : </span>
+    <select id="selUser">
+      <option value=0>All</option>
+    </select>
+    <button type="button" onclick="searchUser()">Search </button>
+  </div>
+</div>
+
+</div>
+
+<div class="wrap">
+  <div><h3 class="title">Posts</h3></div>
+  <p class="reply">
+  </p>
+</div> -->

@@ -10,6 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    @random = Card.all.sample
     erb :index
   end
 
@@ -22,13 +23,13 @@ class ApplicationController < Sinatra::Base
       redirect '/failure'
     else
       User.create(username: params[:username], password: params[:password])
-      redirect '/login'
+      redirect '/profile'
     end
 
   end
 
   get '/profile' do
-    @user = User.find(session[:user_id])
+    @user = User.find_by_id(session[:user_id])
     erb :profile
   end
 
@@ -62,7 +63,8 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find(session[:user_id])
+      # User.find(session[:user_id])
+      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
   end
 

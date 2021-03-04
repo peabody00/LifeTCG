@@ -1,27 +1,18 @@
 <div class="container">
-  <header><a href="images/Car01.png" target="_blank"><img src="images/Car01.png" style="width:225px;height:315px;" class="img-responsive main-image"></a></header>
+  <!-- <header><a href="images/Car01.png" target="_blank"><img src="images/Car01.png" style="width:225px;height:315px;"></a></header> -->
   <div class="col-md-8 col-md-offset-2">
-    <h2>Sinatra Template Default Page</h2>
+    <h2>Life Trading Card Game</h2>
 
     <div class="content">
-      <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-      as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-      your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
+      <p>Welcome to the LifeTCG! Life TCG is a simple trading card game where you can collect cards and increase your life score compared to other players.
+      For a more detailed explanation about how this works please view the <a href="/rules">rules</a>.</p>
+
+      <p>Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to continue.</p>
     </div>
-
-    <p> Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to continue.
-
     <div class="sidebar">
-      <h3>Environment</h3>
-      <ul>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
+      <h3>Card Showcase</h3>
+      <img src="<%= @random.image %>" style="width:225px;height:315px;">
     </div>
 
   </div>
 </div>
-
-"images/corneal-small.png"
