@@ -1,12 +1,4 @@
-require './config/environment'
-
 class PostController < ApplicationController
-
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-  end
-
   get '/post/post' do
     @post = Post.all
     erb :"/post/post"
@@ -17,15 +9,15 @@ class PostController < ApplicationController
     erb :"/post/new"
   end
   
-  post '/post' do
+  post '/post/post' do
     @post = Post.create(params)
-    redirect to "/post/post/"#{@post.id}"
+    erb :"/post/post"
   end
 
-  # get '/post/:id' do
-  #   @post = Post.find(params[:id])
-  #   erb :"/post/show"
-  # end
+  get '/post/:id' do
+    @post = Post.find(params[:id])
+    erb :"/post/show"
+  end
 
   # get '/post/:id/edit' do
   #   @post = Post.find(params[:id])

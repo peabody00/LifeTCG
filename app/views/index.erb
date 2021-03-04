@@ -6,8 +6,18 @@
     <div class="content">
       <p>Welcome to the LifeTCG! Life TCG is a simple trading card game where you can collect cards and increase your life score compared to other players.
       For a more detailed explanation about how this works please view the <a href="/rules">rules</a>.</p>
+        <nav>
+          <% if logged_in? %>
+            <p>Welcome, <b><%=current_user.username %></b></p>
+            </br><a href="/users/profile">Profile</a>
+            </br><a href="/logout">Log Out</a>
+          <% else %>
+            <p>Please sign in or sign up below:</p>
+            <a href="/signup">Sign Up</a>
+            </br><a href="/login">Sign In</a>
+          <%end %>
 
-      <p>Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to continue.</p>
+        </nav>
     </div>
     <div class="sidebar">
       <h3>Card Showcase</h3>

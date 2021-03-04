@@ -5,4 +5,5 @@ require './config/environment'
 # end
 
 use PostController
+use UserController
 run ApplicationController

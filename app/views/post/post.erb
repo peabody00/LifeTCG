@@ -1,9 +1,11 @@
 <ul>
 <% @post.each do |post| %>
   <li>
-    <a href="/post/<%= post.id %>">
-      <%= post.text %> 
-    </a>
+    <a href="/post/post/<%= post.id %>"><%= post.text %></a>
+    <p style="font-size:10px">
+    Author: <%= post.author %>
+    </br>Posted <%= post.created_at %>
+    </br>Updated <%= post.updated_at %></p>
   </li>
 <% end %>
 </ul>
