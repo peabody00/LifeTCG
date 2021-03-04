@@ -1,0 +1,7 @@
+<h2> Edit Post </h2>
+
+<form method="post" action="/post/<%=@post.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="text" id="text" value="<%= @post.text %>">
+  <input type="submit" value="submit">
+</form>

@@ -1,13 +1,13 @@
 <h3><%= current_user.username %> New Post</h3>
 
-<!-- <form action="/post/post/new" method="post">
+<!-- <form action="/post/new" method="post">
       <label for="content">Content</label>
       <textarea id="content" type="text" name="text">
       </textarea>
   <input type="submit" />
 </form> -->
 
-<form action="/post/post" method="POST">
-  <p>Post: <input type="text" id="content" name="text"></p>
-  <input class="btn btn-primary" type="submit" value="submit">
+<form action="/post" method="POST">
+  <p>Post: <input type="text" id="text" name="text"></p>
+  <input type="submit" value="Submit">
 </form>
