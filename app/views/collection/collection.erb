@@ -1,0 +1,15 @@
+<h2>Card Collection</h2>
+<p><b>Life Value: 
+<% life_array=[]
+@collection.each do |m|
+  life_array << m.card.value
+end %>
+<a style="color:red;font-size:150%"><%= life_array.sum%></a></b>
+</p>
+<% @collection.each do |collection| %>
+    <a href="<%= collection.card.image%>" target="_blank"><img src="<%= collection.card.image%>" style="width:150px;height:210px;"></a>
+<% end %>
+<form method="post" action="/collection">
+  <input type="submit" value="Card Pack">
+</form>
+</br><a href="/users/profile">Back to Profile</a>
