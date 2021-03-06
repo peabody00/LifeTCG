@@ -44,6 +44,9 @@ class UserController < ApplicationController
   
     get '/logout' do
       if logged_in?
+        @user = User.find_by(id: session[:user_id])
+        @user.pack_end = Time.now
+        @user.save
         session.destroy
         redirect to '/'
       else

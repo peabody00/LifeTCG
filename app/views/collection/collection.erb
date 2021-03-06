@@ -9,7 +9,14 @@ end %>
 <% @collection.each do |collection| %>
     <a href="<%= collection.card.image%>" target="_blank"><img src="<%= collection.card.image%>" style="width:150px;height:210px;"></a>
 <% end %>
+</br>
+</br>
+<% if @elapsed > 60 %>
 <form method="post" action="/collection">
   <input type="submit" value="Card Pack">
 </form>
+<% else %>
+Pack not available. Please check back later.<%= @elapsed %>
+<% end %>
+
 </br><a href="/users/profile">Back to Profile</a>
