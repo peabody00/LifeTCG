@@ -36,6 +36,7 @@ class UserController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect to "/users/profile"
+        life_value
       else
         redirect to '/signup'
       end

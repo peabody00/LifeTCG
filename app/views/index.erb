@@ -22,7 +22,9 @@
     <div class="content">
     <h3>Player Rankings</h3>
     <ol type="1">
-
+      <% @all_users.each do |life| %>
+        <li><%= life.username %> <%= life.life_value %></li>
+      <% end %>
     </ol>
     </div>
     <div class="sidebar">

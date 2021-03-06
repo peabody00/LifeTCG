@@ -10,11 +10,12 @@ class CollectionController < ApplicationController
 
   post '/collection' do
     if logged_in?
-      @cardpack = []
+      @cardpack = []      
       3.times do
         card_pack
         @cardpack << @card
       end
+      life_value
       erb :'/collection/cardpack'
     else
       redirect to '/login'

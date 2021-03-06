@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     @random = Card.all.sample
-    # life_value
+    @all_users = User.all.order(life_value: :desc)
     erb :index
   end
 
@@ -21,17 +21,18 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      # User.find(session[:user_id])
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
 
     def life_value
-      @users = UserCard.all.select {|m| m.user_id == session[:user_id]}
+      @life = UserCard.all.select {|m| m.user_id == session[:user_id]}
       life_array = []
-      @users.each do |m|
+      @life.each do |m|
         life_array << m.card.value
       end
-      # life_array.sum = @current_user.life_value
+      @user = User.find_by(id: session[:user_id])
+      @user.life_value = life_array.sum
+      @user.save
     end
 
     def card_pack
@@ -47,6 +48,7 @@ class ApplicationController < Sinatra::Base
       else
         @card = Card.where("rarity = 'Legendary'").sample
       end
+      UserCard.create(:user_id => session[:user_id], :card_id => @card.id)
     end
 
   end
