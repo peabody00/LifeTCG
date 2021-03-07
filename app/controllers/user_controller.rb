@@ -11,10 +11,17 @@ class UserController < ApplicationController
         redirect to '/users/profile'
       end
     end
+
+    get '/error' do
+      erb :'users/error'
+    end
   
     post '/signup' do
       if params[:username] == "" || params[:password] == ""
         redirect to '/signup'
+      elsif
+        User.exists?(:username => params[:username])
+        redirect to '/error'
       else
         @user = User.new(:username => params[:username], :password => params[:password])
         @user.save

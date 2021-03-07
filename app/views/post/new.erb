@@ -1,13 +1,7 @@
 <h3><%= current_user.username %> New Post</h3>
-
-<!-- <form action="/post/new" method="post">
-      <label for="content">Content</label>
-      <textarea id="content" type="text" name="text">
-      </textarea>
-  <input type="submit" />
-</form> -->
-
 <form action="/post" method="POST">
   <p>Post: <input type="text" id="text" name="text"></p>
   <input type="submit" value="Submit">
 </form>
+</br>
+</br><a href="/post">Back to Posts</a>

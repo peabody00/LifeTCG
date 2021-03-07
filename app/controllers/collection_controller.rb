@@ -1,7 +1,7 @@
 class CollectionController < ApplicationController
   get '/collection' do
     if logged_in?
-      @collection = UserCard.all.select {|m| m.user_id == session[:user_id]}
+      @collection = UserCard.all.select{|m| m.user_id == session[:user_id]}
       @user = User.find_by(id: session[:user_id])
       if @user.pack_start && @user.pack_end
         start = Time.parse(@user.pack_start)

@@ -1,7 +1,8 @@
 class PostController < ApplicationController
   get '/post' do
     if logged_in?
-      @post = Post.all
+      @post = Post.all.order(updated_at: :desc)
+      current_user
       erb :'/post/post'
     else
       redirect to '/login'

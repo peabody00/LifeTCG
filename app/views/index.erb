@@ -1,14 +1,16 @@
 <div class="container">
-  <!-- <header><a href="images/Car01.png" target="_blank"><img src="images/Car01.png" style="width:225px;height:315px;"></a></header> -->
   <div class="col-md-8 col-md-offset-2">
     <h2>Life Trading Card Game</h2>
 
     <div class="content">
       <p>Welcome to LifeTCG! Life TCG is a simple trading card game where you can collect cards and increase your life score compared to other players.
       For a more detailed explanation about how this works please view the <a href="/rules">rules</a>.</p>
+      <hr>
+      </br>
         <nav>
           <% if logged_in? %>
             <p>Welcome, <b><%=current_user.username %></b></p>
+            <p> To get started go to your Profile.  From there you can view your collection and post messages to other players.</p>
             </br><a href="/users/profile">Profile</a>
             </br><a href="/logout">Log Out</a>
           <% else %>
@@ -24,13 +26,13 @@
     </br><h3>Player Rankings</h3>
     <ol type="1">
       <% @all_users.each do |life| %>
-        <li><%= life.username %> <%= life.life_value %></li>
+        <li><i><%= life.username %></i> - <b><a style="color:red;font-size:110%"><%= life.life_value %></a></b></li></br>
       <% end %>
     </ol>
     </div>
     <div class="sidebar">
       <h3>Card Showcase</h3>
-      <a href="<%= @random.image %>" target="_blank"> <img src="<%= @random.image %>" style="width:225px;height:315px;"></a>
+      <a href="<%= @random.image %>" target="_blank"> <img src="<%= @random.image %>" style="width:225px;height:315px;" class="center"></a>
     </div>
 
   </div>

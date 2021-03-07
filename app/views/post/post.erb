@@ -2,9 +2,13 @@
 <ul>
 <% @post.each do |post| %>
   <li>
-    <a href="/post/<%= post.id %>"><%= post.text %></a>
+    <% if current_user.id == post.user.id %>
+    <a href="/post/<%= post.id %>"><b><%= post.text %></b></a>
+    <% else %>
+    <b><%= post.text %></b>
+    <% end %>
     <p style="font-size:10px">
-    Author: <%= post.user.username %> <%= post.user.life_value %>
+    Author: <%= post.user.username %> - <%= post.user.life_value %>
     </br>Posted <%= post.created_at %>
     </br>Updated <%= post.updated_at %></p>
   </li>
@@ -12,7 +16,9 @@
 </ul>
 
 <a href="/post/new">New Post</a>
+</br>
 </br><a href="/users/profile">Back to Profile</a>
+</br><a href="/logout">Log Out</a>
 
 <!-- <div class="wrap"> 
 <div>

@@ -12,11 +12,12 @@ end %>
 </br>
 </br>
 <% if @elapsed == nil || @elapsed > 60 %>
+<p> You have a new Card Pack available!</p>
 <form method="post" action="/collection">
-  <input type="submit" value="Card Pack">
+  <input type="submit" value="Open Card Pack">
 </form>
 <% else %>
-Pack not available. Please check back later.
+Card Pack not available. Please check back later. (Available every 4 hours after logout)
 <% end %>
-
+</br>
 </br><a href="/users/profile">Back to Profile</a>

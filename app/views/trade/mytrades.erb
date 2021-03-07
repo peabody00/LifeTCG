@@ -1,0 +1,23 @@
+<h2>My Trades</h2>
+<ul>
+<% if @trades != [] %> 
+    <% @trades.each do |trades| %>
+        <li>
+        <b><%= trades.user.username %></b> - <i><%= trades.card.name %></i> - <%= trades.card.group %> - <%= trades.card.rarity %> - <b><%= trades.card.value %></b>
+        </br>FOR
+        #Add if statement to deal with nil information.
+        </br><b><%= trades.other_user.username %></b> - <i><%= trades.other_card.name %></i> - <%= trades.other_card.group %> - <%= trades.other_card.rarity %> - <b><%= trades.other_card.value %></b>
+        </br>Trade Status: <%= trades.status %>   <a href="/trade/view">View Trade</a> 
+        </li>
+        </br>
+        <hr>
+        </br>
+    <% end %>
+</ul>
+<% else %>
+    <p>You have no active trades right now.  Check back later or start your own trade.</P>
+<% end %>
+</br>
+<p><a href="/trade">Back to Trades</a></p>
+</br>
+<p><a href="/users/profile">Back to Profile</a></p>

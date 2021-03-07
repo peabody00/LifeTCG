@@ -1,12 +1,15 @@
-<p><%= @post.text %></p>
-<p style="font-size:10px">
+<%= @post.text %>
+<a style="font-size:10px">
 </br>Posted <%= @post.created_at %>
-</br>Updated <%= @post.updated_at %></p>
+</br>Updated <%= @post.updated_at %></a>
+</br>
+</br>
 <form method="post" action="/post/<%=@post.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Post">
 </form>
 
-</br><a href="/post/<%=@post.id%>/edit">Edit Post </a>
-
-</br><a href="/users/profile">Back to Profile</a>
+</br><a href="/post/<%=@post.id%>/edit">Edit Post</a>
+<p></br><a href="/post">Back to Posts</a>
+</br><a href="/users/profile">Back to Profile</a></p>
+</br><a href="/logout">Log Out</a>

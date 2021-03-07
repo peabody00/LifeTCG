@@ -1,2 +1,21 @@
 <h2>Trades</h2>
-<%= @trades.id %>
+<ul>
+<% @trades.each do |trades| %>
+    <% if trades.status == "Open" %> 
+        <li>
+        <b><%= trades.user.username %></b> - <i><%= trades.card.name %></i> - <%= trades.card.group %> - <%= trades.card.rarity %> - <b><%= trades.card.value %></b>
+        </br>FOR
+            </br>Trade Status: <%= trades.status %>   <a href="/trade/<%= trades.id %>">View Trade</a>
+            </li>
+            </br>
+            <hr>
+            </br>
+    <% else %>
+        <p>No open trades right now.  Check back later or start your own trade.</P>
+    <% end %>
+<% end %>
+</ul>
+</br>
+<p><a href="/trade/mytrades">My Trades</a></p>
+</br>
+<p><a href="/users/profile">Back to Profile</a></p>

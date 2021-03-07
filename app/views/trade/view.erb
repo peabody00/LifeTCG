@@ -1,0 +1,9 @@
+<b><%= @trades.user.username %></b> - <i><%= @trades.card.name %></i> - <%= @trades.card.group %> - <%= @trades.card.rarity %> - <b><%= @trades.card.value %></b>
+</br>FOR
+#Take out this code.  Can't run these methods on nothing.
+</br><b><%= @trades.other_user.username %></b> - <i><%= @trades.other_card.name %></i> - <%= @trades.other_card.group %> - <%= @trades.other_card.rarity %> - <b><%= @trades.other_card.value %></b>
+</br>Trade Status: <%= @trades.status %>
+</br>
+<p><a href="/trade">Back to Trades</a></p>
+</br>
+<p><a href="/users/profile">Back to Profile</a></p>
