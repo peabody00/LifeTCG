@@ -11,12 +11,12 @@ end %>
 <% end %>
 </br>
 </br>
-<% if @elapsed > 60 %>
+<% if @elapsed == nil || @elapsed > 60 %>
 <form method="post" action="/collection">
   <input type="submit" value="Card Pack">
 </form>
 <% else %>
-Pack not available. Please check back later.<%= @elapsed %>
+Pack not available. Please check back later.
 <% end %>
 
 </br><a href="/users/profile">Back to Profile</a>

@@ -7,4 +7,5 @@ use Rack::MethodOverride
 use PostController
 use UserController
 use CollectionController
+use TradeController
 run ApplicationController

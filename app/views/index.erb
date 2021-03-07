@@ -4,7 +4,7 @@
     <h2>Life Trading Card Game</h2>
 
     <div class="content">
-      <p>Welcome to the LifeTCG! Life TCG is a simple trading card game where you can collect cards and increase your life score compared to other players.
+      <p>Welcome to LifeTCG! Life TCG is a simple trading card game where you can collect cards and increase your life score compared to other players.
       For a more detailed explanation about how this works please view the <a href="/rules">rules</a>.</p>
         <nav>
           <% if logged_in? %>
@@ -20,7 +20,8 @@
         </nav>
     </div>
     <div class="content">
-    <h3>Player Rankings</h3>
+    </br>
+    </br><h3>Player Rankings</h3>
     <ol type="1">
       <% @all_users.each do |life| %>
         <li><%= life.username %> <%= life.life_value %></li>

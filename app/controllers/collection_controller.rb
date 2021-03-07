@@ -3,9 +3,11 @@ class CollectionController < ApplicationController
     if logged_in?
       @collection = UserCard.all.select {|m| m.user_id == session[:user_id]}
       @user = User.find_by(id: session[:user_id])
-      start = Time.parse(@user.pack_start)
-      stop = Time.parse(@user.pack_end)
-      @elapsed = stop - start
+      if @user.pack_start && @user.pack_end
+        start = Time.parse(@user.pack_start)
+        stop = Time.parse(@user.pack_end)
+        @elapsed = stop - start
+      end
       erb :'/collection/collection'
     else
       redirect to '/login'
@@ -22,6 +24,7 @@ class CollectionController < ApplicationController
       life_value
       @user = User.find_by(id: session[:user_id])
       @user.pack_start = Time.now
+      @user.pack_end = Time.now
       @user.save
       
       erb :'/collection/cardpack'
